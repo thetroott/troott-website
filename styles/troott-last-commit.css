@@ -1,0 +1,81 @@
+/* Appended to public/troott-ui.css in next.config.ts so these tokens beat @troott/ui. */
+:root,
+.dark,
+html.dark {
+    color-scheme: dark;
+    --background: oklch(18.69% 0.0067 35.9);
+    --foreground: 0 0% 98%;
+    --card: oklch(18.69% 0.0067 35.9);
+    --card-foreground: 0 0% 98%;
+    --popover: oklch(18.69% 0.0067 35.9);
+    --popover-foreground: 0 0% 98%;
+    --primary: 0 0% 98%;
+    --primary-foreground: 0 0% 9%;
+    --secondary: 0 0% 14.9%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 0 0% 14.9%;
+    --muted-foreground: 0 0% 63.9%;
+    --accent: 0 0% 14.9%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 14.9%;
+    --input: 0 0% 14.9%;
+    --ring: 0 0% 83.1%;
+    --chart-1: 220 70% 50%;
+    --chart-2: 160 60% 45%;
+    --chart-3: 30 80% 55%;
+    --chart-4: 280 65% 60%;
+    --chart-5: 340 75% 55%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+
+    --troott-primary: hsl(0 0% 98%);
+    --troott-primary-foreground: hsl(0 0% 9%);
+    --troott-primary-hover: hsl(0 0% 92%);
+    --troott-primary-active: hsl(0 0% 88%);
+    --color-background: oklch(18.69% 0.0067 35.9);
+    --color-foreground: hsl(0 0% 98%);
+    --color-card: oklch(18.69% 0.0067 35.9);
+    --color-card-foreground: hsl(0 0% 98%);
+    --color-popover: oklch(18.69% 0.0067 35.9);
+    --color-popover-foreground: hsl(0 0% 98%);
+    --color-primary: hsl(0 0% 98%);
+    --color-primary-foreground: hsl(0 0% 9%);
+    --color-primary-hover: hsl(0 0% 92%);
+    --color-primary-active: hsl(0 0% 88%);
+    --color-secondary: hsl(0 0% 14.9%);
+    --color-secondary-foreground: hsl(0 0% 98%);
+    --color-muted: hsl(0 0% 14.9%);
+    --color-muted-foreground: hsl(0 0% 63.9%);
+    --color-accent: hsl(0 0% 14.9%);
+    --color-accent-foreground: hsl(0 0% 98%);
+    --color-destructive: hsl(0 62.8% 30.6%);
+    --color-border: hsl(0 0% 14.9%);
+    --color-input: hsl(0 0% 14.9%);
+    --color-ring: hsl(0 0% 83.1%);
+}
+
+[data-slot='button']:not(.rounded-full) {
+    border-radius: 0.125rem;
+    letter-spacing: normal;
+    font-weight: 400;
+}
+
+[data-slot='button']:active {
+    transform: none;
+}
+
+[data-slot='dialog-content'] {
+    border-radius: 0.5rem;
+}
+
+[data-slot='input'] {
+    border-radius: 0.375rem;
+}

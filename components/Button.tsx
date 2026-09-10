@@ -1,0 +1,115 @@
+// Tremor Button [v0.2.0]
+
+import { Slot } from '@radix-ui/react-slot';
+import { RiLoader2Fill } from '@remixicon/react';
+import React from 'react';
+import { tv, type VariantProps } from 'tailwind-variants';
+
+import { cx, focusRing } from '@/lib/utils';
+
+const buttonVariants = tv({
+    base: [
+        'relative inline-flex items-center justify-center whitespace-nowrap rounded-sm border px-3 py-2 text-center text-sm font-normal shadow-sm transition-all duration-100 ease-in-out',
+        'disabled:pointer-events-none disabled:shadow-none',
+        focusRing,
+    ],
+    variants: {
+        variant: {
+            primary: [
+                'border-transparent',
+                'text-black',
+                'bg-teal-400',
+                'hover:bg-teal-200',
+                'disabled:bg-teal-800 disabled:text-teal-600',
+            ],
+            secondary: [
+                'border-teal-800',
+                'text-teal-50',
+                'bg-teal-950',
+                'hover:bg-teal-900',
+                'disabled:text-teal-600',
+            ],
+            light: [
+                'shadow-none',
+                'border-transparent',
+                'text-gray-50',
+                'bg-gray-900',
+                'hover:bg-gray-800/80',
+                'disabled:bg-gray-800 disabled:text-gray-600',
+            ],
+            ghost: [
+                'shadow-none',
+                'border-transparent',
+                'text-gray-50',
+                'bg-transparent hover:bg-gray-800/80',
+                'disabled:text-gray-600',
+            ],
+            destructive: [
+                'text-white',
+                'border-transparent',
+                'bg-red-700',
+                'hover:bg-red-600',
+                'disabled:bg-red-950 disabled:text-red-400',
+            ],
+        },
+    },
+    defaultVariants: {
+        variant: 'primary',
+    },
+});
+
+interface ButtonProps
+    extends
+        React.ComponentPropsWithoutRef<'button'>,
+        VariantProps<typeof buttonVariants> {
+    asChild?: boolean;
+    isLoading?: boolean;
+    loadingText?: string;
+}
+
+const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
+    (
+        {
+            asChild,
+            isLoading = false,
+            loadingText,
+            className,
+            disabled,
+            variant,
+
+            children,
+            ...props
+        }: ButtonProps,
+        forwardedRef,
+    ) => {
+        const Component = asChild ? Slot : 'button';
+        return (
+            <Component
+                ref={forwardedRef}
+                className={cx(buttonVariants({ variant }), className)}
+                disabled={disabled || isLoading}
+                tremor-id="tremor-raw"
+                {...props}
+            >
+                {isLoading ? (
+                    <span className="pointer-events-none flex shrink-0 items-center justify-center gap-1.5">
+                        <RiLoader2Fill
+                            className="size-4 shrink-0 animate-spin"
+                            aria-hidden="true"
+                        />
+                        <span className="sr-only">
+                            {loadingText ? loadingText : 'Loading'}
+                        </span>
+                        {loadingText ? loadingText : children}
+                    </span>
+                ) : (
+                    children
+                )}
+            </Component>
+        );
+    },
+);
+
+Button.displayName = 'Button';
+
+export { Button, buttonVariants, type ButtonProps };

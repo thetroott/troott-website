@@ -1,0 +1,346 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+    --site-header-height: 4rem;
+}
+
+@font-face {
+    font-family: 'Matter-Heavy';
+    src: url('/fonts/matter/Matter-Heavy.ttf') format('truetype');
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Matter-HeavyItalic';
+    src: url('/fonts/matter/Matter-HeavyItalic.ttf') format('truetype');
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Matter-Bold';
+    src: url('/fonts/matter/Matter-Bold.ttf') format('truetype');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Matter-BoldItalic';
+    src: url('/fonts/matter/Matter-BoldItalic.ttf') format('truetype');
+    font-weight: 700;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Matter-SemiBold';
+    src: url('/fonts/matter/Matter-SemiBold.ttf') format('truetype');
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Matter-SemiBoldItalic';
+    src: url('/fonts/matter/Matter-SemiBoldItalic.ttf') format('truetype');
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Matter-Medium';
+    src: url('/fonts/matter/Matter-Medium.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Matter-MediumItalic';
+    src: url('/fonts/matter/Matter-MediumItalic.ttf') format('truetype');
+    font-weight: 500;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Matter-Regular';
+    src: url('/fonts/matter/Matter-Regular.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Matter-RegularItalic';
+    src: url('/fonts/matter/Matter-Italic.ttf') format('truetype');
+    font-weight: 400;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Matter-Light';
+    src: url('/fonts/matter/Matter-Light.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Matter-LightItalic';
+    src: url('/fonts/matter/Matter-LightItalic.ttf') format('truetype');
+    font-weight: 300;
+    font-style: italic;
+    font-display: swap;
+}
+
+/* Utility classes */
+.font-matter-heavy,
+.font-matter-heavy a,
+.font-matter-heavy span {
+    font-family: 'Matter-Heavy';
+}
+.font-matter-heavyi,
+.font-matter-heavyi a,
+.font-matter-heavyi span {
+    font-family: 'Matter-HeavyItalic';
+}
+.font-matter-bold,
+.font-matter-bold a,
+.font-matter-bold span {
+    font-family: 'Matter-Bold';
+}
+.font-matter-boldi,
+.font-matter-boldi a,
+.font-matter-boldi span {
+    font-family: 'Matter-BoldItalic';
+}
+.font-matter-semibold,
+.font-matter-semibold a,
+.font-matter-semibold span {
+    font-family: 'Matter-SemiBold';
+}
+.font-matter-semiboldi,
+.font-matter-semiboldi a,
+.font-matter-semiboldi span {
+    font-family: 'Matter-SemiBoldItalic';
+}
+.font-matter-medium,
+.font-matter-medium a,
+.font-matter-medium span {
+    font-family: 'Matter-Medium';
+}
+.font-matter-mediumi,
+.font-matter-mediumi a,
+.font-matter-mediumi span {
+    font-family: 'Matter-MediumItalic';
+}
+.font-matter,
+.font-matter a,
+.font-matter span {
+    font-family: 'Matter-Regular';
+}
+.font-matteri,
+.font-matteri a,
+.font-matteri span {
+    font-family: 'Matter-RegularItalic';
+}
+.font-matter-light,
+.font-matter-light a,
+.font-matter-light span {
+    font-family: 'Matter-Light';
+}
+.font-matter-lighti,
+.font-matter-lighti a,
+.font-matter-lighti span {
+    font-family: 'Matter-LightItalic';
+}
+
+/* classes */
+.backdrop-blur {
+    -webkit-backdrop-filter: blur(3px);
+    backdrop-filter: blur(3px);
+}
+
+.backdrop-blur-nav {
+    -webkit-backdrop-filter: blur(12px);
+    backdrop-filter: blur(12px);
+}
+code {
+    counter-reset: step;
+    counter-increment: step 0;
+}
+
+code .line::before {
+    content: counter(step);
+    counter-increment: step;
+    @apply mr-8 inline-block w-4 text-right text-gray-600;
+}
+.mask {
+    mask-image: radial-gradient(rgba(0, 0, 0, 1) 0%, transparent 80%);
+}
+
+a {
+    @apply scroll-my-24 decoration-gray-400 transition-all;
+}
+
+.anchor-link {
+    @apply invisible absolute -ml-4 w-3/4 max-w-2xl cursor-pointer pr-2 no-underline;
+}
+
+.anchor-link:hover {
+    @apply visible;
+}
+
+.anchor-link:after {
+    @apply text-gray-400 dark:text-gray-600;
+    content: '#';
+}
+
+*:hover > .anchor-link {
+    @apply visible;
+}
+
+@layer base {
+    .theme {
+        --animate-marquee: marquee var(--duration) infinite linear;
+        --animate-marquee-vertical: marquee-vertical var(--duration) linear
+            infinite;
+    }
+}
+
+@layer base {
+    :root {
+        color-scheme: dark;
+        --background: oklch(18.69% 0.0067 35.9);
+        --foreground: 0 0% 98%;
+        --card: oklch(18.69% 0.0067 35.9);
+        --card-foreground: 0 0% 98%;
+        --popover: oklch(18.69% 0.0067 35.9);
+        --popover-foreground: 0 0% 98%;
+        --primary: 0 0% 98%;
+        --primary-foreground: 0 0% 9%;
+        --secondary: 0 0% 14.9%;
+        --secondary-foreground: 0 0% 98%;
+        --muted: 0 0% 14.9%;
+        --muted-foreground: 0 0% 63.9%;
+        --accent: 0 0% 14.9%;
+        --accent-foreground: 0 0% 98%;
+        --destructive: 0 62.8% 30.6%;
+        --destructive-foreground: 0 0% 98%;
+        --border: 0 0% 14.9%;
+        --input: 0 0% 14.9%;
+        --ring: 0 0% 83.1%;
+        --chart-1: 220 70% 50%;
+        --chart-2: 160 60% 45%;
+        --chart-3: 30 80% 55%;
+        --chart-4: 280 65% 60%;
+        --chart-5: 340 75% 55%;
+        --sidebar-background: 240 5.9% 10%;
+        --sidebar-foreground: 240 4.8% 95.9%;
+        --sidebar-primary: 224.3 76.3% 48%;
+        --sidebar-primary-foreground: 0 0% 100%;
+        --sidebar-accent: 240 3.7% 15.9%;
+        --sidebar-accent-foreground: 240 4.8% 95.9%;
+        --sidebar-border: 240 3.7% 15.9%;
+        --sidebar-ring: 217.2 91.2% 59.8%;
+    }
+
+    * {
+        @apply border-border;
+    }
+    body {
+        @apply bg-background text-foreground;
+    }
+}
+
+@theme inline {
+    @keyframes marquee {
+        from {
+            transform: translateX(0);
+        }
+        to {
+            transform: translateX(calc(-100% - var(--gap)));
+        }
+    }
+    @keyframes marquee-vertical {
+        from {
+            transform: translateY(0);
+        }
+        to {
+            transform: translateY(calc(-100% - var(--gap)));
+        }
+    }
+}
+
+@layer utilities {
+    .animate-slide-down {
+        animation: slideDown 0.3s ease-out;
+    }
+
+    @keyframes slideDown {
+        from {
+            opacity: 0;
+            transform: translateY(-20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    @keyframes tab-progress-fill {
+        from {
+            transform: scaleX(0);
+        }
+        to {
+            transform: scaleX(1);
+        }
+    }
+
+    @keyframes tab-progress-ring {
+        from {
+            stroke-dashoffset: var(--ring-circumference);
+        }
+        to {
+            stroke-dashoffset: 0;
+        }
+    }
+
+    .animate-tab-progress-fill {
+        animation: tab-progress-fill var(--tab-duration, 6s) linear forwards;
+    }
+
+    .animate-tab-progress-ring {
+        animation: tab-progress-ring var(--tab-duration, 6s) linear forwards;
+    }
+}
+
+@keyframes reveal {
+    0% {
+        mask-image: linear-gradient(to top, transparent 100%, #000 100%);
+    }
+    100% {
+        mask-image: linear-gradient(to top, transparent 40%, #000 100%);
+    }
+}
+
+/* tailwind override for autofill background */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+    -webkit-box-shadow: 0 0 0px 1000px #131312 inset !important;
+    box-shadow: 0 0 0px 1000px #131312 inset !important;
+    -webkit-text-fill-color: #d4d4d4 !important;
+}
+
+/* Token restore lives in /troott-last-commit.css so it loads after /troott-ui.css. */
